@@ -21,6 +21,9 @@ pipeline{
       }
     }
     stage('code-build'){
+        when{
+            branch 'main'
+        }
       steps{
         sh 'cat /etc/passwd'
       }
@@ -42,6 +45,9 @@ pipeline{
       }
     }
     stage('code-deploy'){
+        when{
+            branch 'develop'
+        }
       steps{
         sh 'tail -5 /etc/passwd'
         sh 'head -3 /etc/passwd'
